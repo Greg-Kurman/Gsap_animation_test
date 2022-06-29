@@ -12,43 +12,79 @@
             .selector {
                 width: 100px;
                 height: 100px;
-                background-color: rgb(194, 51, 51);
+                background-color: green;
                 margin: 20px 30px;
                 font-size: 30px;
                 color: white;
                 text-align: center;
             }
+
+            .info {
+
+                width: 10px;
+                background-color: rgb(135, 197, 222);
+                color: rgb(197, 87, 87);
+                font-size: 1px;
+                padding: 30px;
+                opacity: 1;
+            }
         </style>
     </head>
+
     <body>
-        <div class="selector" onclick="startShow()">
+        <div class="selector up" onclick="startShow() ">
             Open
         </div>
-        <div class="selector" onclick="closeShow()">
+        <div class="info">
+            git push -u origin main
+            <br>
+
+            git push -u origin main
+            <br>
+
+            git push -u origin main
+        </div>
+        <div class="selector down" onclick="closeShow()">
             Close
         </div>
-            <script>
-                function startShow() {
+        <script>
+            function startShow() {
             gsap.to(".selector",{
             width: 1000,
-            background: "green",
+            background: "red",
             duration: 1 ,
             stagger: 0.1,
             ease: "power2.inOut",
+            }),
+            gsap.to(".info",{
+                width:1000 ,
+                height: 400,
+                duration: 1,
+                stagger: 0.1,
+                fontSize: 40,
+                ease: "power2.inOut",
             })
             }
 
             function closeShow() {
                 gsap.to(".selector",{
                 width: 100,
-                background: "red",
+                background: "green",
                 duration: 1 ,
                 stagger: 0.1,
                 ease: "power2.inOut",
-                })
+                }),
+                gsap.to(".info",{
+                width:10 ,
+                height: 4,
+                duration: 1,
+                stagger: 0.1,
+                fontSize: 1,
+                ease: "power2.inOut",
+            })
             }
        
-            </script>
+        </script>
     </body>
 
     </html>
