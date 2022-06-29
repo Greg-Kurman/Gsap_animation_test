@@ -9,12 +9,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
         <title>Document</title>
         <style>
-            .selector {
+            .up {
                 width: 100px;
                 height: 100px;
                 background-color: green;
                 margin: 20px 30px;
-                font-size: 30px;
+                font-size: 25px;
                 color: white;
                 text-align: center;
             }
@@ -22,47 +22,64 @@
             .info {
 
                 width: 10px;
-                background-color: rgb(135, 197, 222);
-                color: rgb(197, 87, 87);
+                background-color: rgb(70, 153, 91);
+                color: rgb(0, 0, 0);
                 font-size: 1px;
                 padding: 30px;
-                opacity: 1;
+                opacity: 0;
+            }
+
+            .down {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                margin: 20px 30px;
+                font-size: 25px;
+                color: white;
+                text-align: center;
+                opacity: 0;
             }
         </style>
     </head>
 
     <body>
         <div class="selector up" onclick="startShow() ">
-            Open
+            Открыть 
         </div>
         <div class="info">
-            git push -u origin main
+           
             <br>
-
-            git push -u origin main
+             При клике на "открыть"  изменяем стили у блоков, а так же используются методы из gsap такие как  duration, stagger, ease.
             <br>
-
-            git push -u origin main
+             
+          
         </div>
         <div class="selector down" onclick="closeShow()">
-            Close
+            Закрыть 
         </div>
         <script>
             function startShow() {
             gsap.to(".selector",{
             width: 1000,
-            background: "red",
-            duration: 1 ,
+            background: "blue",
+            duration: 0.5 ,
             stagger: 0.1,
             ease: "power2.inOut",
             }),
             gsap.to(".info",{
                 width:1000 ,
                 height: 400,
-                duration: 1,
+                duration: 0.5,
                 stagger: 0.1,
                 fontSize: 40,
+                opacity: 1,
                 ease: "power2.inOut",
+            }),
+            gsap.to(".down",{
+                opacity: 1,
+            }),
+            gsap.to(".up",{
+                opacity: 0,
             })
             }
 
@@ -70,17 +87,24 @@
                 gsap.to(".selector",{
                 width: 100,
                 background: "green",
-                duration: 1 ,
+                duration: 0.5 ,
                 stagger: 0.1,
                 ease: "power2.inOut",
                 }),
                 gsap.to(".info",{
                 width:10 ,
                 height: 4,
-                duration: 1,
+                duration: 0.5,
                 stagger: 0.1,
                 fontSize: 1,
+                opacity: 0,
                 ease: "power2.inOut",
+            }),
+            gsap.to(".up",{
+                opacity: 1,
+            }),
+            gsap.to(".down",{
+                opacity: 0,
             })
             }
        
